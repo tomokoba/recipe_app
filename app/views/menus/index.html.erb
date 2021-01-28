@@ -1,0 +1,9 @@
+<h1>Menus#index</h1>
+<p>Find me in app/views/menus/index.html.erb</p>
+
+<% @menus.each do |menu|%>
+<%= attachment_image_tag menu, :image %>
+<%= menu.user.username %>
+<%= menu.updated_at.strftime("%Y-%m-%d %H:%M") %>
+
+<% end %>
