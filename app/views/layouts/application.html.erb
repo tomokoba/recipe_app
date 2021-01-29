@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Recipe</title>
+    <title>recipegram</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
@@ -25,7 +25,7 @@
     <nav class="navbar is-warning">
       <div class="navbar-brand">
         <%= link_to root_path, class: "navbar-item" do %>
-          <h1 class="title is-4" style="font-family: cursive;">RecipeApp</h1>
+          <h1 class="title is-4" style="font-family: cursive;">recipegram</h1>
         <%  end %>
         <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
           <span></span>
@@ -36,11 +36,20 @@
 
         <% if user_signed_in? %>
           <div id="navbarExampleTransparentExample" class="navbar-menu">
+            <div class="navbar-item">
+              <%= link_to "レシピ一覧", menus_path, class: "button is-warning is-light" %>
+            </div>
+            <div class="navbar-item">
+              <%= link_to "新規投稿", new_menu_path, class: "button is-warning is-light" %>
+            </div>
             <div class="navbar-end">
               <div class="navbar-item">
                 <div class="field is-grouped">
                   <p class="control">
                     <%= link_to "ユーザー一覧", users_path, class: "button is-warning is-light" %>
+                  </p>
+                  <p class="control">
+                    <%= link_to "マイページ", user_path(current_user), class: "button is-warning is-light" %>
                   </p>
                   <p class="control">
                     <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-warning is-light" %>
@@ -51,12 +60,15 @@
           </div>
         <% else %>
           <div id="navbarExampleTransparentExample" class="navbar-menu">
+            <div class="navbar-item">
+              <%= link_to "レシピ一覧", menus_path, class: "button is-warning is-light" %>
+            </div>
+            <div class="navbar-item">
+              <%= link_to "ユーザー一覧", users_path, class: "button is-warning is-light" %>
+            </div>
               <div class="navbar-end">
                 <div class="navbar-item">
                   <div class="field is-grouped">
-                    <p class="control">
-                      <%= link_to "レシピ一覧", users_path, class: "button is-warning is-light" %>
-                    </p>
                     <p class="control">
                     <%= link_to "ログイン", new_user_session_path, class: "button is-warning is-light" %>
                     </p>

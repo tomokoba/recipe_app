@@ -18,7 +18,7 @@
               <div class="card-image">
                 <figure class="image">
                   <%= link_to user_path(user) do %>
-                    <%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", size: "50x50" %>
+                    <%= attachment_image_tag user, :profile_image, fallback: "no-image.png", size: "50x50" %>
                   <% end %>
                 </figure>
               </div>
@@ -30,7 +30,7 @@
                 </div>
               </div>
               <div class="content">
-                投稿数：
+                投稿数：<%= user.menus.count %>
               </div>
             </div>
           </div>
